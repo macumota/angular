@@ -1,0 +1,22 @@
+<div
+class="exam"
+*ngIf="exam">
+    
+    <a
+    class="exam__link"
+    routerLink="/exam/{{ exam.id }}"
+    >
+
+    <img class="exam__image" src="https://cdn-icons-png.flaticon.com/512/1946/1946058.png">
+
+    <div>
+        <p>{{ exam.year }}</p>
+        <p>{{ exam.announcement }}</p>
+        <p class="exam__subject">{{ exam.subject }}</p>
+    </div>
+
+    <button class="exam__button" (click)="navigateToDetail(exam.id)">Ver más</button>
+
+    </a>
+
+</div>

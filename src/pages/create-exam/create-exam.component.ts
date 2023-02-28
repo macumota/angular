@@ -59,7 +59,6 @@ export class CreateExamComponent implements OnInit{
       year: new FormControl(exam?.year || '', [Validators.required]),
       announcement: new FormControl(exam?.announcement ||'', [Validators.required]),
       subject: new FormControl(exam?.subject ||'', [Validators.required]),
-      exam: new FormControl(exam?.exam ||''),//!imagen del examen
     });
   }
 
@@ -67,9 +66,8 @@ export class CreateExamComponent implements OnInit{
     if (!this.examForm?.valid) { return; }
     const examRequest = this.canEdit && this.examId
       ? this.examService.editApiExam(this.examId, this.examForm?.value)
-      : this.examService.createApiExam(this.examForm?.value);
+      : this.examService.createApiExam({...this.examForm?.value, newExam: true});
     examRequest.subscribe(() => {
-      console.log(this.examForm)
       this.examForm?.reset();
       this.router.navigate(['exam-list']);
     });

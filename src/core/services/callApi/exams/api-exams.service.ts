@@ -1,5 +1,5 @@
 import { IExam } from './../../../models/IExam';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -31,6 +31,12 @@ export class ApiExamsService {
 
   public editApiExam(id: string, body: IExam): Observable<IExam> {
     return this.http.put<IExam>(`${API_EXAM_URL}/exams/${id}`, body);
+  }
+
+  public getCreatedExam(): Observable<IExam[]> {
+    return this.getApiExams().pipe(map((exam : IExam[])=>{
+      return exam.filter((exam)=>exam.newExam === true)
+    }))
   }
 }
 

@@ -1,5 +1,3 @@
-import { CreateExamModule } from './../pages/create-exam/create-exam.module';
-import { AuthGuard } from './../core/guards/auth.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -22,22 +20,16 @@ const routes: Routes = [
     loadChildren: () => import('../pages/exam-detail/exam-detail.module').then(m => m.ExamDetailModule)
   },
   {
-    path: 'login',
-    loadChildren: () => import('../pages/login/login.module').then(m => m.LoginModule)
-  },
-  {
-    path: 'account',
-    loadChildren: () => import('../pages/account/account.module').then(m => m.AccountModule),
-    canActivate: [AuthGuard]
-  },
-  {
     path: 'create-exam',
     loadChildren: () => import('../pages/create-exam/create-exam.module').then(m => m.CreateExamModule),
-    canActivate: [AuthGuard]
   },
   {
     path: 'about-us',
     loadChildren: () => import('../pages/about-us/about-us.module').then(m => m.AboutUsModule)
+  },
+  {
+    path: 'new-exams',
+    loadChildren: () => import('../pages/new-exams/new-exams.module').then(m => m.NewExamsModule)
   },
   {
     path: '**',

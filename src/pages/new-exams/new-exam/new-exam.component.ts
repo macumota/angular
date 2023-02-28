@@ -1,15 +1,14 @@
-import { ApiExamsService } from 'src/core/services/callApi/exams/api-exams.service';
+import { IExam } from './../../../core/models/IExam';
+import { ApiExamsService } from './../../../core/services/callApi/exams/api-exams.service';
 import { Router } from '@angular/router';
 import { Component, Input } from '@angular/core';
-import { IExam } from 'src/core/models/IExam';
 
 @Component({
-  selector: 'app-exam',
-  templateUrl: './exam.component.html',
-  styleUrls: ['./exam.component.scss']
+  selector: 'app-new-exam',
+  templateUrl: './new-exam.component.html',
+  styleUrls: ['./new-exam.component.scss']
 })
-export class ExamComponent{
-
+export class NewExamComponent {
   constructor (private router : Router, public ApiExamsService : ApiExamsService){}
 
   @Input() exam? : IExam
@@ -18,4 +17,4 @@ export class ExamComponent{
   
     this.router.navigate(["/exam", id])
     }
-  }
+}

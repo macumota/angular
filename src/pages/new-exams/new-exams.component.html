@@ -1,4 +1,4 @@
-<h2>LISTADO DE EXÁMENES</h2>
+<h2>TUS CREACIONES</h2>
 
 <div class="container">
   <div>
@@ -22,10 +22,10 @@
 </div>
 
 <div class="list-exams">
-  <app-exam
+  <app-new-exam
     *ngFor="
-      let exam of examList | filterSubject : examSubject | filterYear : examYear
+      let exam of newExams | filterSubject : examSubject | filterYear : examYear
     "
     [exam]="exam"
-  ></app-exam>
+  ></app-new-exam>
 </div>

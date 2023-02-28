@@ -3,22 +3,21 @@ import { Router } from '@angular/router';
 import { IExam } from 'src/core/models/IExam';
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
-  selector: 'app-list-exams',
-  templateUrl: './list-exams.component.html',
-  styleUrls: ['./list-exams.component.scss']
+  selector: 'app-new-exams',
+  templateUrl: './new-exams.component.html',
+  styleUrls: ['./new-exams.component.scss']
 })
-export class ListExamsComponent implements OnInit {
+export class NewExamsComponent implements OnInit{
 
-  public examList : IExam[] = []
+  public newExams : IExam[] = [];
   public examSubject : string = "";
   public examYear : number = 0;
 
   constructor (private router : Router, public ApiExamsService : ApiExamsService){}
 
   ngOnInit() {
-    this.ApiExamsService.getApiExams().subscribe((data: IExam[]) => {
+    this.ApiExamsService.getCreatedExam().subscribe((data: IExam[]) => {
       const results: IExam[] = data;
 
       const formattedResults = results.map(({ id, year, announcement, subject, exam }) => ({
@@ -28,7 +27,7 @@ export class ListExamsComponent implements OnInit {
         subject,
         exam
       }));
-      this.examList = formattedResults;
+      this.newExams = formattedResults;
     })
   }
 }

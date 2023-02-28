@@ -4,7 +4,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from 'src/core/components/header/header.component';
 import { FooterComponent } from 'src/core/components/footer/footer.component';
-import { LoadingComponent } from 'src/core/components/loading/loading.component';
 
 
 describe('AppComponent', () => {
@@ -17,8 +16,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         HeaderComponent,
-        FooterComponent,
-        LoadingComponent
+        FooterComponent
       ],
     }).compileComponents();
   });

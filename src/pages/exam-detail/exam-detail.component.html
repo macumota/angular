@@ -1,7 +1,11 @@
-<div class="examDetail" *ngIf= "exam | async ; let exam">
-    <p>{{exam.subject}}</p>
+<div class="examDetail" *ngIf= "exam && subject">
     <p>{{exam.year}}</p>
     <p>{{exam.announcement}}</p>
+    <div>
+        <h3>{{ subject[0].name }}</h3>
+        <p *ngIf="subject[0].notes">Consulta aquí el <a href="{{ subject[0].notes }}">temario oficial del BOCM</a></p>
+    </div>
+
     <button class="examDetail__button"><a class="examDetail__link" href="{{exam.exam}}">DESCARGA</a></button>
 </div>
 <div class="container">

@@ -6,8 +6,8 @@
 
 <div class="header__header2">
   <a class="header__header2__link" [routerLink]="['list-exams']">Listado exámenes</a>
-  <a *ngIf="!isLogged" class="header__header2__link" [routerLink]="['/login']">Login</a>
-  <a *ngIf="isLogged" class="header__header2__link" [routerLink]="['account']">Mi cuenta</a>
+  <a class="header__header2__link" [routerLink]="['create-exam']">Crear examen</a>
+  <a class="header__header2__link" [routerLink]="['new-exams']">Mis creaciones</a>
   <a class="header__header2__link" [routerLink]="['about-us']">Sobre mí</a>
 </div>
 
