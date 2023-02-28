@@ -1,0 +1,107 @@
+<h2>CREA TU EXAMEN</h2>
+
+<form
+  *ngIf="examForm"
+  class="form"
+  (submit)="createNewExam()"
+  [formGroup]="examForm"
+  name="exam"
+>
+  <div>
+    <input
+      class="form__input"
+      placeholder="Año"
+      type="number"
+      required
+      formControlName="year"
+    />
+    <p
+      *ngIf="!examForm.get('year')?.valid
+                && examForm.get('year')?.dirty
+                && examForm.get('year')?.errors?.['required']
+            "
+      class="input__error"
+    >
+      El valor está requerido
+    </p>
+    <p
+      *ngIf="!examForm.get('year')?.valid
+                && examForm.get('year')?.dirty
+                && examForm.get('year')?.errors?.['pattern']
+            "
+      class="input__error"
+    >
+      El año debe incluir solo números
+    </p>
+  </div>
+  <div>
+    <input
+      class="form__input"
+      placeholder="Asignatura"
+      name="subject"
+      required
+      formControlName="subject"
+    />
+    <p
+      *ngIf="!examForm.get('subject')?.valid
+                && examForm.get('subject')?.touched
+                && examForm.get('subject')?.errors?.['required']
+            "
+      class="input__error"
+    >
+      El valor está requerido
+    </p>
+    <p
+      *ngIf="!examForm.get('subject')?.valid
+                && examForm.get('subject')?.dirty
+                && examForm.get('subject')?.errors?.['pattern']
+            "
+      class="input__error"
+    >
+      La asignatura debe incluir sólo letras.
+    </p>
+  </div>
+  <div>
+    <input
+      class="form__input"
+      placeholder="Convocatoria"
+      name="announcement"
+      required
+      formControlName="announcement"
+    />
+    <p
+      *ngIf="!examForm.get('announcement')?.valid
+                && examForm.get('announcement')?.touched
+                && examForm.get('announcement')?.errors?.['required']
+            "
+      class="input__error"
+    >
+      El valor está requerido
+    </p>
+    <p
+      *ngIf="!examForm.get('announcement')?.valid
+                && examForm.get('announcement')?.dirty
+                && examForm.get('announcement')?.errors?.['pattern']
+            "
+      class="input__error"
+    >
+      La convocatoria debe incluir sólo letras.
+    </p>
+  </div>
+  <button class="button" type="submit" [disabled]="!examForm.valid">
+    {{ canEdit ? "Editar examen" : "Crear examen" }}
+  </button>
+</form>
+
+<div class="button__container">
+  <button class="button">
+    <a class="button__link" href="/list-exams"
+      >VOLVER A LA LISTA DE EXÁMENES</a
+    >
+  </button>
+  <button class="button">
+    <a class="button__link" href="/account"
+      >IR A MI CUENTA</a
+    >
+  </button>
+</div>

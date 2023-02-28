@@ -1,15 +1,24 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from 'src/core/components/header/header.component';
+import { FooterComponent } from 'src/core/components/footer/footer.component';
+import { LoadingComponent } from 'src/core/components/loading/loading.component';
+
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        ReactiveFormsModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        HeaderComponent,
+        FooterComponent,
+        LoadingComponent
       ],
     }).compileComponents();
   });

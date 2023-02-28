@@ -1,0 +1,9 @@
+<div class="examDetail" *ngIf= "exam | async ; let exam">
+    <p>{{exam.subject}}</p>
+    <p>{{exam.year}}</p>
+    <p>{{exam.announcement}}</p>
+    <button class="examDetail__button"><a class="examDetail__link" href="{{exam.exam}}">DESCARGA</a></button>
+</div>
+<div class="container">
+<button class="examDetail__button"><a class="examDetail__link" href="/list-exams">VOLVER A LA LISTA DE EXÁMENES</a></button>
+</div>

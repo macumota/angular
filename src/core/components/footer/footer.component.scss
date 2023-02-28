@@ -1,0 +1,18 @@
+.footer{
+    background-color: gold;
+    text-align: center;
+    font-size: 15px;
+    color: black;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+
+    &__1{
+        margin-bottom: 0px;
+    }
+
+    &__link{
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+    }
+}

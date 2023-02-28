@@ -1,0 +1,21 @@
+<h2>LISTADO DE EXÁMENES</h2>
+
+<div class="container">
+    <div>
+<p>Busca por asignatura</p>
+<input class="list-exams__input" type="text" placeholder="Asignatura" [(ngModel)]="examSubject">
+</div>
+<div>
+<p>Busca por año</p>
+<input class="list-exams__input" type="number" placeholder="Año" [(ngModel)]="examYear">
+</div>
+</div>
+
+<div
+    class="list-exams"
+>
+<app-exam
+    *ngFor="let exam of examList | filterSubject: examSubject  | filterYear: examYear"
+    [exam]="exam"
+    ></app-exam>
+</div>

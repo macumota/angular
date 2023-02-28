@@ -1,0 +1,14 @@
+<div class="header">
+
+<div>
+  <a class="header__title" [routerLink]="['home']">¡Examen sorpresa!</a>
+</div>
+
+<div class="header__header2">
+  <a class="header__header2__link" [routerLink]="['list-exams']">Listado exámenes</a>
+  <a *ngIf="!isLogged" class="header__header2__link" [routerLink]="['/login']">Login</a>
+  <a *ngIf="isLogged" class="header__header2__link" [routerLink]="['account']">Mi cuenta</a>
+  <a class="header__header2__link" [routerLink]="['about-us']">Sobre mí</a>
+</div>
+
+</div>
